@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts web api</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<p># Otspunktid
+
+    ## Kontakt
+
+    GET```https://localhost:8080/contact/all```
+
+
+    GET```https://localhost:8080/contact/{ID}```
+
+    POST``` https://localhost:8080/contact/```
+    ```
+    {
+    "real_name": "Andreas Plado",
+    "secret_code": "Salakood",
+    "phone" : "+37258802867"
+    }
+    ```
+    PUT``` https://localhost:8080/contact/{ID}```
+
+    DELETE``` https://localhost:8080/contact/{ID}```
+
+    DELETE``` https://localhost:8080/contact/deleteall```
+
+    ## Klient
+
+    GET```https://localhost:8080/client/all```
+
+    GET```https://localhost:8080/client/{ID}```
+
+    POST``` https://localhost:8080/client/```
+    ```
+    {
+    "real_name": "Andreas Plado",
+    "secret_code": "Salakood",
+    "phone" : "+37258802867"
+    }
+    ```
+    PUT``` https://localhost:8080/client/{ID}```
+
+    DELETE``` https://localhost:8080/client/{ID}```
+
+    DELETE``` https://localhost:8080/client/deleteall```
+
+
+    ## Vastused
+    Vastuses on kas postitatud vorm või JSON objekt ResponseModel
+
+
+
+    ResponseModel:
+    ```
+    {
+    "message": "Teade"
+    }
+    ```</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div><h2>Kontaktid</h2>
+  <div class="heroes-menu">
+    <a *ngFor="let contact of contacts"
+      routerLink="/detail/{{contact.id}}">
+      {{contact.name}}
+    </a>
+  </div>
+</div>

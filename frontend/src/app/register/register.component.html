@@ -1,0 +1,9 @@
+<div><h2>Registreeru kasutaja</h2>
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+      <label>Kasutajanimi:</label>
+      <input type="text" name="username" formControlName="username"/>
+      <label>Parool:</label>
+      <input type="password" name="password" formControlName="password"/>
+      <input type="submit" id="hero-name" value="Registreeru"/>
+    </form>
+</div>

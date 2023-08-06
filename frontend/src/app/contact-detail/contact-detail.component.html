@@ -1,0 +1,24 @@
+<div>
+  <div *ngIf="contact">
+  <h2>{{contact.name | uppercase}} Detailid</h2>
+  <div><span>id: </span>{{contact.id}}</div>
+  <div>
+  <form [formGroup]="updateContactForm" (ngSubmit)="updateContact()">
+      <label for="hero-name">Kontakti pärisnimi: </label>
+      <input type="text" id="hero-name" [(ngModel)]="contact.name" name="name" formControlName="name" placeholder="Pärisinimi"/>
+      <br>
+      <label for="hero-name">Kontakti salajane kood: </label>
+      <div style="display:flex"><input type="text" id="hero-name" [(ngModel)]="contact.code" name="code" formControlName="code" placeholder="Kontakti kood"/>
+        <input type="file" class="file-upload" (change)="upload($event)">/></div>
+      <br>
+      <label for="hero-name">Kontakti telefon: </label>
+      <input type="text" id="hero-name" [(ngModel)]="contact.phone" name="phone" formControlName="phone" placeholder="Kontakti telefon"/>
+      <br>
+      <button type="submit">Muuda</button>
+    </form>
+  </div>
+
+  <button type="button" (click)="goBack()">Mine tagasi</button>
+  <button type="button" (click)="deleteContact()">Kustuta</button>
+</div>
+</div>

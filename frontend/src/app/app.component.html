@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<div style="display: flex;"><nav>
+  <a routerLink="/dashboard">Töölaud</a>
+  <a routerLink="/contacts">Kontaktid</a>
+  <a routerLink="/add-contact">Lisa kontakt</a>
+  <app-logout></app-logout>
+</nav>
+</div>
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+<a routerLink="/register">REGISTREERU</a>

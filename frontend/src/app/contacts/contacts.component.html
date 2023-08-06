@@ -1,0 +1,29 @@
+
+<form [formGroup]="searchContactForm" (ngSubmit)="findContact()">
+  <div style="display: flex;">
+    <input type="text" name="name" formControlName="name" width="40%" (keyup)="findContact()"/>
+    <input type="submit" id="hero-name" value="Otsi kontakti"/>
+  </div>
+  <br>
+</form>
+<h2>My Contacts</h2>
+<div *ngIf="contacts.length > 0">
+  <ul class="heroes">
+    <li *ngFor="let contact of contacts">
+      <a routerLink="/detail/{{contact.id}}">
+        <span class="badge">{{contact.id}}</span> {{contact.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+<div *ngIf="contacts.length <= 0">
+  <p>Kontakti {{ keyword }} ei leitud</p>
+  <button type="button" routerLink="/add-contact">Lisa kontakt</button>
+</div>
+<ul  *ngIf="showPagination" class="pagination">
+  <li *ngFor="let page of pages"
+  [ngClass]="{'page-item': true, active : currentPage === page}"
+  (click)="onPageChange(page)">
+      <span class="page-link">{{page}}</span>
+  </li>
+</ul>

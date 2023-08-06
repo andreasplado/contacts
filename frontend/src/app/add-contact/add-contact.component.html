@@ -1,0 +1,10 @@
+<div><h2>Lisa Kontakt</h2>
+  <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()">
+    <label>Pärisnimi:</label>
+    <input type="text" name="name" formControlName="name"/>
+    <div style="display: flex;"><label>Salajane kood:</label><input type="text" name="code" formControlName="code"/><a (click)="cryptSecretPhrase()">Krüpteeri</a></div>
+    <label>Telefoni number:</label>
+    <input type="text" name="phone" formControlName="phone"/>
+    <input type="submit" id="hero-name" value="Lisa kontakt"/>
+  </form>
+</div>

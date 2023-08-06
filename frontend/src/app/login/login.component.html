@@ -1,0 +1,10 @@
+<h2>Logi sisse</h2>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <label>Kaustajanimi:</label>
+  <input type="text" name="username" formControlName="username"/>
+  <label>Parool:</label>
+  <input type="password" name="password" formControlName="password"/>
+  <input type="submit" id="hero-name" value="LOGI SISSE"/>
+</form>
+<br>
+<br>

@@ -1,0 +1,13 @@
+package com.contacts.webapi.model;
+
+public class Note {
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
