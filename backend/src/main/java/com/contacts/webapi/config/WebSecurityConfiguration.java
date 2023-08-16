@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private UserDetailsService userDetailsService;
+    private final AuthenticationManagerBuilder authManagerBuilder;
     private static final String[] AUTH_WHITELIST = {
             "/users/signup",
             "/user-login",
@@ -23,17 +24,18 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
             "/users/signup"
     };
 
-    public WebSecurityConfiguration(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public WebSecurityConfiguration(UserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder, AuthenticationManagerBuilder authManagerBuilder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.userDetailsService = userDetailsService;
+        this.authManagerBuilder = authManagerBuilder;
     }
 
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest().authenticated()
-                .and().addFilter(new AuthenticationFilter(authenticationManager(), getApplicationContext()))
-                .addFilter(new AuthorizationFilter(authenticationManager()))
+                .and().addFilter(new AuthenticationFilter(authManagerBuilder.getOrBuild(), getApplicationContext()))
+                .addFilter(new AuthorizationFilter(authManagerBuilder.getOrBuild()))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
